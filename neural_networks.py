@@ -61,6 +61,7 @@ class MLP:
         grad_weights_output_hidden = np.dot(self.hlayer_activations.T, delta_output)
         grad_bias_output = np.sum(delta_output, axis=0, keepdims=True)
 
+        #Get derivatives based on activation function
         if self.activation_fn == 'sigmoid':
             delta_hidden = np.dot(delta_output, self.weights_output_hidden.T) * (self.hlayer_activations * (1 - self.hlayer_activations))
         elif self.activation_fn == 'relu':
